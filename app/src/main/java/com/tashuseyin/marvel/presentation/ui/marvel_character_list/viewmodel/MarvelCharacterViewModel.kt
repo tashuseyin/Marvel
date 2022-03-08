@@ -2,10 +2,12 @@ package com.tashuseyin.marvel.presentation.ui.marvel_character_list.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.tashuseyin.marvel.common.Constants.LIMIT
 import com.tashuseyin.marvel.common.Constants.MD5_API_KEY
 import com.tashuseyin.marvel.common.Constants.PUBLIC_API_KEY
 import com.tashuseyin.marvel.common.Constants.QUERY_API_KEY
 import com.tashuseyin.marvel.common.Constants.QUERY_HASH
+import com.tashuseyin.marvel.common.Constants.QUERY_LIMIT
 import com.tashuseyin.marvel.common.Constants.QUERY_TS
 import com.tashuseyin.marvel.common.Constants.TS
 import com.tashuseyin.marvel.common.Resource
@@ -53,6 +55,7 @@ class MarvelCharacterViewModel @Inject constructor(
         queries[QUERY_TS] = TS
         queries[QUERY_API_KEY] = PUBLIC_API_KEY
         queries[QUERY_HASH] = MD5_API_KEY
+        queries[QUERY_LIMIT] = LIMIT
         return queries
     }
 }

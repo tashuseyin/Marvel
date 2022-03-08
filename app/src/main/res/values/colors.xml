@@ -12,4 +12,6 @@
     <color name="dark_gray">#202020</color>
     <color name="medium_gray">#505050</color>
     <color name="text_white">#eeeeee</color>
+    <color name="card_color">#151515</color>
+    <color name="red">#FF0000</color>
 </resources>
