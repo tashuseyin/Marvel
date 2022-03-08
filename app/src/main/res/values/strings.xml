@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Marvel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="thumbnail_path">@{result.thumbnail.path}</string>
+    <string name="thumbnail_extension">@{result.thumbnail.extension}</string>
+    <string name="portrait">/portrait_uncanny.</string>
+</resources>
