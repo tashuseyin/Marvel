@@ -7,16 +7,6 @@
     android:orientation="vertical"
     tools:context=".presentation.ui.marvel_character_list.MarvelCharacterList">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:titleTextColor="@color/white"
-        app:title="Marvel Characters"
-        android:background="@color/light_green"
-        android:elevation="2dp"/>
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"

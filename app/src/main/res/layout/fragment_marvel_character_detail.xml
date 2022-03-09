@@ -27,12 +27,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/character_image"
                 android:layout_width="150dp"
                 android:layout_height="180dp"
                 android:layout_marginTop="150dp"
                 android:scaleType="fitXY"
+                app:shapeAppearanceOverlay="@style/CardDesign"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewbinding.ViewBinding
 import coil.load
+import com.tashuseyin.marvel.MainActivity
 import com.tashuseyin.marvel.databinding.FragmentMarvelCharacterDetailBinding
 import com.tashuseyin.marvel.domain.model.Comics
 import com.tashuseyin.marvel.presentation.bindingadapter.BindingFragment
@@ -63,6 +64,7 @@ class MarvelCharacterDetail : BindingFragment<FragmentMarvelCharacterDetailBindi
                     crossfade(300)
                 }
                 characterName.text = marvelCharacter.name
+                (requireActivity() as MainActivity).title = marvelCharacter.name + "\t\tComics"
 
                 if (marvelCharacter.description?.isNotEmpty() == true) {
                     characterDescription.isVisible = true
@@ -93,7 +95,7 @@ class MarvelCharacterDetail : BindingFragment<FragmentMarvelCharacterDetailBindi
                 comicList.sortedByDescending {
                     it.date
                 }
-                characterBackgroundImage.load(comicList[0].thumbnail.path + "." + comicList[0].thumbnail.extension){
+                characterBackgroundImage.load(comicList[0].thumbnail.path + "." + comicList[0].thumbnail.extension) {
                     crossfade(300)
                 }
                 adapter.setData(comicList)

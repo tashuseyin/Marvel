@@ -6,4 +6,6 @@
     <string name="thumbnail_extension">@{result.thumbnail.extension}</string>
     <string name="portrait">/portrait_uncanny.</string>
     <string name="comics">Character Comics</string>
+    <string name="marvel_characters">Marvel Characters</string>
+    <string name="marvel_comics">Marvel Character Comics</string>
 </resources>

@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.tashuseyin.marvel.MainActivity
+import com.tashuseyin.marvel.R
 import com.tashuseyin.marvel.databinding.FragmentMarvelCharacterListBinding
 import com.tashuseyin.marvel.presentation.bindingadapter.BindingFragment
 import com.tashuseyin.marvel.presentation.ui.marvel_character_list.adapter.MarvelCharacterAdapter
@@ -26,7 +27,7 @@ class MarvelCharacterList : BindingFragment<FragmentMarvelCharacterListBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        (requireActivity() as MainActivity).title = getString(R.string.marvel_characters)
         observeViewModel()
     }
 
