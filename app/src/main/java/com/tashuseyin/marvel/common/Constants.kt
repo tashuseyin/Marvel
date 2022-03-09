@@ -11,5 +11,6 @@ object Constants {
     const val QUERY_API_KEY = "apikey"
     const val QUERY_HASH = "hash"
     const val QUERY_LIMIT = "limit"
+    const val QUERY_CHARACTER_ID = "characterId"
 
 }

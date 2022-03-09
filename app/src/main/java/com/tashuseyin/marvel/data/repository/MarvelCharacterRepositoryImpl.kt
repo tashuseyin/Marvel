@@ -1,6 +1,7 @@
 package com.tashuseyin.marvel.data.repository
 
 import com.tashuseyin.marvel.data.remote.MarvelCharacterApi
+import com.tashuseyin.marvel.data.remote.comics.CharacterComics
 import com.tashuseyin.marvel.domain.repository.MarvelCharacterRepository
 import javax.inject.Inject
 
@@ -10,4 +11,11 @@ class MarvelCharacterRepositoryImpl @Inject constructor(
     override suspend fun getMarvelCharacters(queries: Map<String, String>) =
         api.getMarvelCharacters(queries)
 
+    override suspend fun getMarvelCharacterById(characterId: Int, queries: Map<String, String>) =
+        api.getMarvelCharacterById(characterId, queries)
+
+    override suspend fun getMarvelCharacterComics(
+        characterId: Int,
+        queries: Map<String, String>
+    ) = api.getMarvelCharacterComics(characterId, queries)
 }

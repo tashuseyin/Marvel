@@ -8,7 +8,7 @@ data class MarvelCharacterDto(
     @SerializedName("comics")
     val comics: Comics,
     @SerializedName("description")
-    val description: String,
+    val description: String?,
     @SerializedName("events")
     val events: Events,
     @SerializedName("id")
@@ -31,6 +31,7 @@ data class MarvelCharacterDto(
 
 fun MarvelCharacterDto.toMarvelCharacter(): MarvelCharacter {
     return MarvelCharacter(
+        id = id,
         comics = comics,
         description = description,
         name = name,

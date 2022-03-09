@@ -13,6 +13,7 @@ import com.tashuseyin.marvel.common.Constants.TS
 import com.tashuseyin.marvel.common.Resource
 import com.tashuseyin.marvel.domain.use_case.get_marvel_characters.GetMarvelCharactersUseCase
 import com.tashuseyin.marvel.presentation.ui.marvel_character_list.state.MarvelListState
+import com.tashuseyin.marvel.util.Utils.Companion.applyQueries
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -47,15 +48,5 @@ class MarvelCharacterViewModel @Inject constructor(
                 }
             }
         }.launchIn(viewModelScope)
-    }
-
-
-    private fun applyQueries(): HashMap<String, String> {
-        val queries: HashMap<String, String> = HashMap()
-        queries[QUERY_TS] = TS
-        queries[QUERY_API_KEY] = PUBLIC_API_KEY
-        queries[QUERY_HASH] = MD5_API_KEY
-        queries[QUERY_LIMIT] = LIMIT
-        return queries
     }
 }

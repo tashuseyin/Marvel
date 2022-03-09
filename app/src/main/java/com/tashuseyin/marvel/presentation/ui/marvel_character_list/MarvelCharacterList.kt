@@ -6,6 +6,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.tashuseyin.marvel.databinding.FragmentMarvelCharacterListBinding
 import com.tashuseyin.marvel.presentation.bindingadapter.BindingFragment
@@ -27,11 +28,19 @@ class MarvelCharacterList : BindingFragment<FragmentMarvelCharacterListBinding>(
 
         observeViewModel()
     }
+
     private fun observeViewModel() {
         lifecycleScope.launch {
             marvelViewModel.state.collect { state ->
                 if (state.characters.isNotEmpty()) {
-                    val adapter = MarvelCharacterAdapter()
+                    val adapter = MarvelCharacterAdapter { characterId ->
+                        findNavController().navigate(
+                            MarvelCharacterListDirections.actionMarvelCharacterListToMarvelCharacterDetail(
+                                characterId
+                            )
+                        )
+                    }
+
                     adapter.setData(state.characters)
                     binding.recyclerview.adapter = adapter
                 }

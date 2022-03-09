@@ -9,10 +9,19 @@
         android:id="@+id/marvelCharacterList"
         android:name="com.tashuseyin.marvel.presentation.ui.marvel_character_list.MarvelCharacterList"
         android:label="fragment_marvel_character_list"
-        tools:layout="@layout/fragment_marvel_character_list" />
+        tools:layout="@layout/fragment_marvel_character_list" >
+        <action
+            android:id="@+id/action_marvelCharacterList_to_marvelCharacterDetail"
+            app:destination="@id/marvelCharacterDetail" />
+    </fragment>
     <fragment
         android:id="@+id/marvelCharacterDetail"
         android:name="com.tashuseyin.marvel.presentation.ui.marvel_character_detail.MarvelCharacterDetail"
         android:label="fragment_marvel_character_detail"
-        tools:layout="@layout/fragment_marvel_character_detail" />
+        tools:layout="@layout/fragment_marvel_character_detail" >
+        <argument
+            android:name="characterId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

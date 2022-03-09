@@ -6,8 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.tashuseyin.marvel.databinding.CharacterRowLayoutBinding
 import com.tashuseyin.marvel.domain.model.MarvelCharacter
 
-class MarvelCharacterAdapter : RecyclerView.Adapter<MarvelCharacterViewHolder>() {
-    var marvelCharacterList = emptyList<MarvelCharacter>()
+class MarvelCharacterAdapter(private val onItemClickListener: (Int) -> Unit) :
+    RecyclerView.Adapter<MarvelCharacterViewHolder>() {
+    private var marvelCharacterList = emptyList<MarvelCharacter>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarvelCharacterViewHolder {
         val binding =
             CharacterRowLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -15,7 +16,7 @@ class MarvelCharacterAdapter : RecyclerView.Adapter<MarvelCharacterViewHolder>()
     }
 
     override fun onBindViewHolder(holder: MarvelCharacterViewHolder, position: Int) {
-        holder.bind(marvelCharacterList[position])
+        holder.bind(marvelCharacterList[position],onItemClickListener)
     }
 
     override fun getItemCount() = marvelCharacterList.size
