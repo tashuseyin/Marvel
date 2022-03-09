@@ -53,6 +53,7 @@ class MarvelCharacterDetail : BindingFragment<FragmentMarvelCharacterDetailBindi
         }
     }
 
+
     private fun setCharacterView(state: MarvelDetailState) {
         binding.apply {
             state.character?.let { marvelCharacter ->
@@ -91,6 +92,9 @@ class MarvelCharacterDetail : BindingFragment<FragmentMarvelCharacterDetailBindi
                 }
                 comicList.sortedByDescending {
                     it.date
+                }
+                characterBackgroundImage.load(comicList[0].thumbnail.path + "." + comicList[0].thumbnail.extension){
+                    crossfade(300)
                 }
                 adapter.setData(comicList)
                 binding.recyclerview.adapter = adapter

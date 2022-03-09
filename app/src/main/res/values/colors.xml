@@ -14,4 +14,7 @@
     <color name="text_white">#eeeeee</color>
     <color name="card_color">#151515</color>
     <color name="red">#FF0000</color>
+
+    <color name="dark_green">#005005</color>
+    <color name="light_green">#2e7d32</color>
 </resources>

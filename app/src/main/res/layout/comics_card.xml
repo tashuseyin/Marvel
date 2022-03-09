@@ -3,15 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="250dp"
     android:layout_margin="5dp"
-    android:layout_height="250dp">
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp"
-        android:background="@drawable/comics_bg"
-        android:elevation="5dp">
+        android:layout_margin="5dp">
 
         <ImageView
             android:id="@+id/comics_image"
@@ -28,11 +28,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/courgette"
+            android:padding="4dp"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:padding="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/comics_image"
             app:layout_constraintTop_toTopOf="@+id/comics_image"
@@ -45,9 +45,9 @@
             android:ellipsize="end"
             android:maxLines="9"
             android:padding="4dp"
+            android:textColor="@color/dark_gray"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:textColor="@color/dark_gray"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/comics_image"
             app:layout_constraintTop_toBottomOf="@+id/comics_title"

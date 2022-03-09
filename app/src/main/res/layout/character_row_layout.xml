@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="380dp"
+    android:layout_height="300dp"
     android:layout_margin="5dp"
     android:id="@+id/character_card"
     app:cardCornerRadius="10dp">
@@ -12,39 +12,26 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/card_color">
+        android:background="@color/white">
 
         <ImageView
             android:id="@+id/character_image"
             style="@style/CardDesign"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:scaleType="centerCrop"
+            android:layout_height="220dp"
+            android:scaleType="fitXY"
             android:src="@color/purple_200"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-
-        <ImageView
-            android:id="@+id/character_line"
-            android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:src="@color/red"
-            app:layout_constraintBottom_toBottomOf="@+id/character_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/character_name"
-            app:layout_constraintVertical_bias="0.0" />
-
         <TextView
             android:id="@+id/character_name"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:paddingTop="20dp"
             android:paddingStart="20dp"
-            android:textAlignment="textStart"
-            android:textColor="@color/text_white"
+            android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
