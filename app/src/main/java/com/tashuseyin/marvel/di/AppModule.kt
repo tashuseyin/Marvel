@@ -1,7 +1,7 @@
 package com.tashuseyin.marvel.di
 
 import com.tashuseyin.marvel.common.Constants.BASE_URL
-import com.tashuseyin.marvel.data.remote.MarvelCharacterApi
+import com.tashuseyin.marvel.data.remote.network.MarvelCharacterApi
 import com.tashuseyin.marvel.data.repository.MarvelCharacterRepositoryImpl
 import com.tashuseyin.marvel.domain.repository.MarvelCharacterRepository
 import dagger.Module

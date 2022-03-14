@@ -5,7 +5,7 @@ object Constants {
     const val MD5_API_KEY = "edf692f42857ace8ed0e46e4c2f9d8ac"
     const val PUBLIC_API_KEY="8716471fbbf0eb64d2be49dfe0204b0e"
     const val TS = "1"
-    const val LIMIT = 30
+    const val LIMIT = "30"
     const val OFFSET = 0
 
     const val QUERY_TS = "ts"

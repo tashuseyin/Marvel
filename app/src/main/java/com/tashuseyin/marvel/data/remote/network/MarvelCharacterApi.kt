@@ -1,4 +1,4 @@
-package com.tashuseyin.marvel.data.remote
+package com.tashuseyin.marvel.data.remote.network
 
 import com.tashuseyin.marvel.data.remote.comics.CharacterComics
 import com.tashuseyin.marvel.data.remote.dto.Result

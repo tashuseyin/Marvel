@@ -1,7 +1,6 @@
 package com.tashuseyin.marvel.data.repository
 
-import com.tashuseyin.marvel.data.remote.MarvelCharacterApi
-import com.tashuseyin.marvel.data.remote.comics.CharacterComics
+import com.tashuseyin.marvel.data.remote.network.MarvelCharacterApi
 import com.tashuseyin.marvel.domain.repository.MarvelCharacterRepository
 import javax.inject.Inject
 
