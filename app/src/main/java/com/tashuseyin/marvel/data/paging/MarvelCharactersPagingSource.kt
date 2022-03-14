@@ -11,7 +11,7 @@ class MarvelCharactersPagingSource(
 ) : PagingSource<Int, MarvelCharacter>() {
 
     override fun getRefreshKey(state: PagingState<Int, MarvelCharacter>): Int? {
-        return state.anchorPosition
+        TODO("Not yet implemented")
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MarvelCharacter> {
@@ -23,8 +23,8 @@ class MarvelCharactersPagingSource(
 
             LoadResult.Page(
                 data = roverInfoDetail,
-                prevKey = if (nextPage == 1) null else nextPage - 1,
-                nextKey = if (roverInfoDetail.isEmpty()) null else nextPage + 1
+                prevKey = if (nextPage == 1) null else nextPage - 30,
+                nextKey = if (roverInfoDetail.isEmpty()) null else nextPage + 30
             )
         } catch (ex: Exception) {
             return LoadResult.Error(ex)
