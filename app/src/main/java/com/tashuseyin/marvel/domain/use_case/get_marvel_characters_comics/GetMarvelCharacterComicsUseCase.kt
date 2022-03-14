@@ -15,15 +15,13 @@ class GetMarvelCharacterComicsUseCase @Inject constructor(
 ) {
 
     operator fun invoke(
-        characterId: Int,
-        queries: Map<String, String>
+        characterId: Int
     ): Flow<Resource<List<Comics>>> = flow {
         try {
             emit(Resource.Loading())
             val data =
                 repository.getMarvelCharacterComics(
-                    characterId,
-                    queries
+                    characterId
                 ).data.results.map { it.toComics() }
             emit(Resource.Success(data))
         } catch (e: HttpException) {

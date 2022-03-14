@@ -2,51 +2,44 @@ package com.tashuseyin.marvel.presentation.ui.marvel_character_list.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tashuseyin.marvel.common.Constants.LIMIT
-import com.tashuseyin.marvel.common.Constants.MD5_API_KEY
-import com.tashuseyin.marvel.common.Constants.PUBLIC_API_KEY
-import com.tashuseyin.marvel.common.Constants.QUERY_API_KEY
-import com.tashuseyin.marvel.common.Constants.QUERY_HASH
-import com.tashuseyin.marvel.common.Constants.QUERY_LIMIT
-import com.tashuseyin.marvel.common.Constants.QUERY_TS
-import com.tashuseyin.marvel.common.Constants.TS
-import com.tashuseyin.marvel.common.Resource
-import com.tashuseyin.marvel.domain.use_case.get_marvel_characters.GetMarvelCharactersUseCase
-import com.tashuseyin.marvel.presentation.ui.marvel_character_list.state.MarvelListState
-import com.tashuseyin.marvel.util.Utils.Companion.applyQueries
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import com.tashuseyin.marvel.domain.model.MarvelCharacter
+import com.tashuseyin.marvel.domain.repository.MarvelCharacterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 @HiltViewModel
 class MarvelCharacterViewModel @Inject constructor(
-    private val getMarvelCharactersUseCase: GetMarvelCharactersUseCase
+    private val repository: MarvelCharacterRepository
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(MarvelListState())
-    val state: StateFlow<MarvelListState> = _state
+//    private val _state = MutableStateFlow(MarvelListState())
+//    val state: StateFlow<MarvelListState> = _state
+//
+//    init {
+//        getMarvelCharacters()
+//    }
+//
+//    private fun getMarvelCharacters() {
+//        getMarvelCharactersUseCase().onEach { result ->
+//            when (result) {
+//                is Resource.Success -> {
+//                    _state.value = MarvelListState(characters = result.data ?: PagingData.empty())
+//                }
+//                is Resource.Error -> {
+//                    _state.value =
+//                        MarvelListState(error = result.message ?: "An unexcepted error occurred")
+//                }
+//                is Resource.Loading -> {
+//                    _state.value = MarvelListState(isLoading = true)
+//                }
+//            }
+//        }.launchIn(viewModelScope)
+//    }
 
-    init {
-        getMarvelCharacters(applyQueries())
-    }
-
-    private fun getMarvelCharacters(queries: HashMap<String, String>) {
-        getMarvelCharactersUseCase(queries).onEach { result ->
-            when (result) {
-                is Resource.Success -> {
-                    _state.value = MarvelListState(characters = result.data ?: emptyList())
-                }
-                is Resource.Error -> {
-                    _state.value =
-                        MarvelListState(error = result.message ?: "An unexcepted error occurred")
-                }
-                is Resource.Loading -> {
-                    _state.value = MarvelListState(isLoading = true)
-                }
-            }
-        }.launchIn(viewModelScope)
+    fun getData(): Flow<PagingData<MarvelCharacter>> {
+        return repository.getMarvelCharacters().cachedIn(viewModelScope)
     }
 }

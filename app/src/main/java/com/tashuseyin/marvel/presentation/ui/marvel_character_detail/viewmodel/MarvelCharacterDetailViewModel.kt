@@ -8,7 +8,6 @@ import com.tashuseyin.marvel.common.Resource
 import com.tashuseyin.marvel.domain.use_case.get_marvel_character.GetMarvelCharacterByIdUseCase
 import com.tashuseyin.marvel.domain.use_case.get_marvel_characters_comics.GetMarvelCharacterComicsUseCase
 import com.tashuseyin.marvel.presentation.ui.marvel_character_detail.state.MarvelDetailState
-import com.tashuseyin.marvel.util.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -28,13 +27,13 @@ class MarvelCharacterDetailViewModel @Inject constructor(
 
     init {
         savedStateHandle.get<Int>(Constants.QUERY_CHARACTER_ID)?.let { characterId ->
-            getMarvelCharacterById(characterId, Utils.applyQueries())
-            getMarvelCharacterComics(characterId, Utils.applyQueries())
+            getMarvelCharacterById(characterId)
+            getMarvelCharacterComics(characterId)
         }
     }
 
-    private fun getMarvelCharacterById(characterId: Int, queries: Map<String, String>) {
-        getMarvelCharacterByIdUseCase(characterId, queries).onEach { result ->
+    private fun getMarvelCharacterById(characterId: Int) {
+        getMarvelCharacterByIdUseCase(characterId).onEach { result ->
             when (result) {
                 is Resource.Success -> {
                     _state.value = MarvelDetailState(character = result.data)
@@ -50,8 +49,8 @@ class MarvelCharacterDetailViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
 
-    private fun getMarvelCharacterComics(characterId: Int, queries: Map<String, String>) {
-        getMarvelCharacterComicsUseCase(characterId, queries).onEach { result ->
+    private fun getMarvelCharacterComics(characterId: Int) {
+        getMarvelCharacterComicsUseCase(characterId).onEach { result ->
             when (result) {
                 is Resource.Success -> {
                     _state.value = MarvelDetailState(comics = result.data ?: emptyList())

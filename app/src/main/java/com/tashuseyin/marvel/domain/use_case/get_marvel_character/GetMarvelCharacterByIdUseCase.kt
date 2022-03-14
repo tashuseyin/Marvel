@@ -15,15 +15,13 @@ class GetMarvelCharacterByIdUseCase @Inject constructor(
 ) {
 
     operator fun invoke(
-        characterId: Int,
-        queries: Map<String, String>
+        characterId: Int
     ): Flow<Resource<MarvelCharacter>> = flow {
         try {
             emit(Resource.Loading())
             val data =
                 repository.getMarvelCharacterById(
-                    characterId,
-                    queries
+                    characterId
                 ).data.results[0].toMarvelCharacter()
             emit(Resource.Success(data))
             print(data)

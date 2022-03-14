@@ -1,10 +1,11 @@
-package com.tashuseyin.marvel
+package com.tashuseyin.marvel.presentation.ui.activites
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
+import com.tashuseyin.marvel.R
 import com.tashuseyin.marvel.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

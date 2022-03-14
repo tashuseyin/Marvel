@@ -9,10 +9,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewbinding.ViewBinding
 import coil.load
-import com.tashuseyin.marvel.MainActivity
 import com.tashuseyin.marvel.databinding.FragmentMarvelCharacterDetailBinding
 import com.tashuseyin.marvel.domain.model.Comics
 import com.tashuseyin.marvel.presentation.bindingadapter.BindingFragment
+import com.tashuseyin.marvel.presentation.ui.activites.MainActivity
 import com.tashuseyin.marvel.presentation.ui.marvel_character_detail.adapter.ComicsAdapter
 import com.tashuseyin.marvel.presentation.ui.marvel_character_detail.state.MarvelDetailState
 import com.tashuseyin.marvel.presentation.ui.marvel_character_detail.viewmodel.MarvelCharacterDetailViewModel
