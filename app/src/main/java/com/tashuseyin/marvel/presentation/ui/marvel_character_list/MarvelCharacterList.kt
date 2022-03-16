@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.viewbinding.ViewBinding
+import com.tashuseyin.marvel.R
 import com.tashuseyin.marvel.databinding.FragmentMarvelCharacterListBinding
 import com.tashuseyin.marvel.presentation.bindingadapter.BindingFragment
 import com.tashuseyin.marvel.presentation.ui.marvel_character_list.adapter.MarvelCharacterAdapter
@@ -60,7 +61,7 @@ class MarvelCharacterList : BindingFragment<FragmentMarvelCharacterListBinding>(
                 error?.let {
                     if (adapter.snapshot().isEmpty()) {
                         binding.errorText.isVisible = true
-                        binding.errorText.text = it.error.localizedMessage
+                        binding.errorText.text = getString(R.string.error)
                     }
                 }
 

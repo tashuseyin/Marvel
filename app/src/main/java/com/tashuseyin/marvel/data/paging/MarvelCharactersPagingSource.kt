@@ -15,7 +15,7 @@ class MarvelCharactersPagingSource(
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MarvelCharacter> {
-        val nextPage = params.key ?: 1
+        val nextPage = params.key ?: 0
         return try {
             val response = api.getMarvelCharacters(nextPage)
 

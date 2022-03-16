@@ -91,15 +91,14 @@ class MarvelCharacterDetail : BindingFragment<FragmentMarvelCharacterDetailBindi
                         }
                     }
                 }
-                comicList.sortedByDescending {
-                    it.date
-                }
-                if (comicList.isNotEmpty()){
+                if (comicList.isNotEmpty()) {
                     characterBackgroundImage.load(comicList[0].thumbnail.path + "." + comicList[0].thumbnail.extension) {
                         crossfade(300)
                     }
                 }
-                adapter.setData(comicList)
+                adapter.setData(comicList.sortedByDescending {
+                    it.date
+                })
                 binding.recyclerview.adapter = adapter
             }
         }
