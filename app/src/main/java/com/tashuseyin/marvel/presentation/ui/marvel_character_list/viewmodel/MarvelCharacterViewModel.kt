@@ -6,12 +6,12 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.tashuseyin.marvel.domain.model.MarvelCharacter
 import com.tashuseyin.marvel.domain.repository.MarvelCharacterRepository
-import com.tashuseyin.marvel.presentation.ui.marvel_character_list.state.MarvelListState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
-import java.io.IOException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -19,33 +19,18 @@ class MarvelCharacterViewModel @Inject constructor(
     private val repository: MarvelCharacterRepository
 ) : ViewModel() {
 
-    private val _state = MutableStateFlow(MarvelListState())
-    val state: StateFlow<MarvelListState> = _state
+    private val _marvelCharacterList = MutableStateFlow(PagingData.empty<MarvelCharacter>())
+    val marvelCharacterList: StateFlow<PagingData<MarvelCharacter>> = _marvelCharacterList
 
     init {
         viewModelScope.launch {
             getMarvelCharacters()
         }
-
     }
 
     private suspend fun getMarvelCharacters() {
-        _state.value = MarvelListState(isLoading = true)
-        try {
-            repository.getMarvelCharacters().distinctUntilChanged().collectLatest {
-                _state.value = MarvelListState(characters = it)
-            }
-        } catch (e: HttpException) {
-            _state.value =
-                MarvelListState(error = e.localizedMessage ?: "An unexpected error occurred")
-        } catch (e: IOException) {
-            _state.value =
-                MarvelListState(error = "Couldn't reach server. Check your internet connection.")
+        repository.getMarvelCharacters().cachedIn(viewModelScope).distinctUntilChanged().collectLatest {
+            _marvelCharacterList.value = it
         }
-    }
-
-
-    fun getData(): Flow<PagingData<MarvelCharacter>> {
-        return repository.getMarvelCharacters().cachedIn(viewModelScope)
     }
 }

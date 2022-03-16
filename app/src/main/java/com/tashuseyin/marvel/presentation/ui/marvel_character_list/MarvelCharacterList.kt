@@ -12,8 +12,7 @@ import com.tashuseyin.marvel.presentation.bindingadapter.BindingFragment
 import com.tashuseyin.marvel.presentation.ui.marvel_character_list.adapter.MarvelCharacterAdapter
 import com.tashuseyin.marvel.presentation.ui.marvel_character_list.viewmodel.MarvelCharacterViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -41,8 +40,8 @@ class MarvelCharacterList : BindingFragment<FragmentMarvelCharacterListBinding>(
 
     private fun observeViewModel() {
         lifecycleScope.launch {
-            marvelViewModel.getData().distinctUntilChanged().collectLatest {
-                adapter.submitData(it)
+            marvelViewModel.marvelCharacterList.collect { data ->
+                adapter.submitData(data)
             }
         }
     }
