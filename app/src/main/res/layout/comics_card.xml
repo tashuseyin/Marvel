@@ -41,28 +41,29 @@
             android:id="@+id/comics_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:ellipsize="end"
             android:maxLines="9"
             android:padding="4dp"
             android:textColor="@color/dark_gray"
             android:textSize="14sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/comics_date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/comics_image"
             app:layout_constraintTop_toBottomOf="@+id/comics_title"
+            app:layout_constraintVertical_bias="0.0"
             tools:text="Description" />
 
         <TextView
             android:id="@+id/comics_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/comics_description"
-            app:layout_constraintTop_toBottomOf="@+id/comics_description"
             app:layout_constraintVertical_bias="1.0"
             tools:text="2022" />
 

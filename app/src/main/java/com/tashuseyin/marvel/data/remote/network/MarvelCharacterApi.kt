@@ -1,7 +1,7 @@
 package com.tashuseyin.marvel.data.remote.network
 
-import com.tashuseyin.marvel.data.remote.comics.CharacterComics
-import com.tashuseyin.marvel.data.remote.dto.Result
+import com.tashuseyin.marvel.data.remote.model.comics.CharacterComics
+import com.tashuseyin.marvel.data.remote.model.dto.Result
 import com.tashuseyin.marvel.util.Utils
 import retrofit2.http.GET
 import retrofit2.http.Path

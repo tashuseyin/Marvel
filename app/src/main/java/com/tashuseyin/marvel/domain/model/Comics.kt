@@ -1,8 +1,8 @@
 package com.tashuseyin.marvel.domain.model
 
 import com.google.gson.annotations.SerializedName
-import com.tashuseyin.marvel.data.remote.comics.Date
-import com.tashuseyin.marvel.data.remote.comics.Thumbnail
+import com.tashuseyin.marvel.data.remote.model.comics.Date
+import com.tashuseyin.marvel.data.remote.model.comics.Thumbnail
 
 data class Comics(
     @SerializedName("title")

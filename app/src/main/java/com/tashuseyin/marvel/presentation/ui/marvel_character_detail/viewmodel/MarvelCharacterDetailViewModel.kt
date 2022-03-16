@@ -5,8 +5,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tashuseyin.marvel.common.Constants
-import com.tashuseyin.marvel.data.remote.comics.toComics
-import com.tashuseyin.marvel.data.remote.dto.toMarvelCharacter
+import com.tashuseyin.marvel.data.remote.model.comics.toComics
+import com.tashuseyin.marvel.data.remote.model.dto.toMarvelCharacter
 import com.tashuseyin.marvel.domain.repository.MarvelCharacterRepository
 import com.tashuseyin.marvel.presentation.ui.marvel_character_detail.state.MarvelDetailState
 import dagger.hilt.android.lifecycle.HiltViewModel

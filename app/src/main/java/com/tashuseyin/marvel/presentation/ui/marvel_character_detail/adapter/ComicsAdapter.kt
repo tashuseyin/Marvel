@@ -3,7 +3,6 @@ package com.tashuseyin.marvel.presentation.ui.marvel_character_detail.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.tashuseyin.marvel.data.remote.dto.Item
 import com.tashuseyin.marvel.databinding.ComicsCardBinding
 import com.tashuseyin.marvel.domain.model.Comics
 

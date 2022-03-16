@@ -2,7 +2,7 @@ package com.tashuseyin.marvel.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.tashuseyin.marvel.data.remote.dto.toMarvelCharacter
+import com.tashuseyin.marvel.data.remote.model.dto.toMarvelCharacter
 import com.tashuseyin.marvel.data.remote.network.MarvelCharacterApi
 import com.tashuseyin.marvel.domain.model.MarvelCharacter
 

@@ -1,8 +1,8 @@
 package com.tashuseyin.marvel.domain.model
 
 import com.google.gson.annotations.SerializedName
-import com.tashuseyin.marvel.data.remote.dto.Comics
-import com.tashuseyin.marvel.data.remote.dto.Thumbnail
+import com.tashuseyin.marvel.data.remote.model.dto.Comics
+import com.tashuseyin.marvel.data.remote.model.dto.Thumbnail
 
 
 data class MarvelCharacter(

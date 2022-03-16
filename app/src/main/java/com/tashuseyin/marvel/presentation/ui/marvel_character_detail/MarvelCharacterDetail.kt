@@ -94,8 +94,10 @@ class MarvelCharacterDetail : BindingFragment<FragmentMarvelCharacterDetailBindi
                 comicList.sortedByDescending {
                     it.date
                 }
-                characterBackgroundImage.load(comicList[0].thumbnail.path + "." + comicList[0].thumbnail.extension) {
-                    crossfade(300)
+                if (comicList.isNotEmpty()){
+                    characterBackgroundImage.load(comicList[0].thumbnail.path + "." + comicList[0].thumbnail.extension) {
+                        crossfade(300)
+                    }
                 }
                 adapter.setData(comicList)
                 binding.recyclerview.adapter = adapter

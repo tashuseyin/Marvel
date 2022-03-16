@@ -6,9 +6,11 @@
         <entry key="..\:/Users/monster/AndroidStudioProjects/Android12/Marvel/app/src/main/res/drawable/card_design.xml" value="0.2905" />
         <entry key="..\:/Users/monster/AndroidStudioProjects/Android12/Marvel/app/src/main/res/drawable/character_design.xml" value="0.2905" />
         <entry key="..\:/Users/monster/AndroidStudioProjects/Android12/Marvel/app/src/main/res/drawable/comics_bg.xml" value="0.2905" />
+        <entry key="..\:/Users/monster/AndroidStudioProjects/Android12/Marvel/app/src/main/res/drawable/splash_background.xml" value="0.289" />
         <entry key="..\:/Users/monster/AndroidStudioProjects/Android12/Marvel/app/src/main/res/layout/activity_main.xml" value="0.2564814814814815" />
+        <entry key="..\:/Users/monster/AndroidStudioProjects/Android12/Marvel/app/src/main/res/layout/character_load_state.xml" value="0.3625" />
         <entry key="..\:/Users/monster/AndroidStudioProjects/Android12/Marvel/app/src/main/res/layout/character_row_layout.xml" value="0.1867816091954023" />
-        <entry key="..\:/Users/monster/AndroidStudioProjects/Android12/Marvel/app/src/main/res/layout/comics_card.xml" value="0.346875" />
+        <entry key="..\:/Users/monster/AndroidStudioProjects/Android12/Marvel/app/src/main/res/layout/comics_card.xml" value="0.33" />
         <entry key="..\:/Users/monster/AndroidStudioProjects/Android12/Marvel/app/src/main/res/layout/fragment_marvel_character_detail.xml" value="0.24074074074074073" />
         <entry key="..\:/Users/monster/AndroidStudioProjects/Android12/Marvel/app/src/main/res/layout/fragment_marvel_character_list.xml" value="0.24074074074074073" />
       </map>
