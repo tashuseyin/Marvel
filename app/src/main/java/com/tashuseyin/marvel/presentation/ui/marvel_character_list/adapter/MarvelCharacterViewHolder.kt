@@ -8,7 +8,7 @@ import com.tashuseyin.marvel.domain.model.MarvelCharacter
 class MarvelCharacterViewHolder(private val binding: CharacterRowLayoutBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(marvelCharacter: MarvelCharacter, onItemClickListener: (Int) ->Unit) {
+    fun bind(marvelCharacter: MarvelCharacter, onItemClickListener: ((Int) -> Unit)?) {
         val imageUrl =
             marvelCharacter.thumbnail.path + "/portrait_uncanny." + marvelCharacter.thumbnail.extension
         binding.characterImage.load(imageUrl) {
@@ -17,7 +17,7 @@ class MarvelCharacterViewHolder(private val binding: CharacterRowLayoutBinding) 
         binding.characterName.text = marvelCharacter.name
 
         binding.characterCard.setOnClickListener {
-            onItemClickListener(marvelCharacter.id)
+            onItemClickListener?.invoke(marvelCharacter.id)
         }
     }
 }

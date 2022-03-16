@@ -6,8 +6,9 @@ import androidx.paging.PagingDataAdapter
 import com.tashuseyin.marvel.databinding.CharacterRowLayoutBinding
 import com.tashuseyin.marvel.domain.model.MarvelCharacter
 
-class MarvelCharacterAdapter(private val onItemClickListener: (Int) -> Unit) :
+class MarvelCharacterAdapter :
     PagingDataAdapter<MarvelCharacter, MarvelCharacterViewHolder>(MarvelDiffUtil()) {
+    var onItemClickListener: ((Int) -> Unit)? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MarvelCharacterViewHolder {
         val binding =
             CharacterRowLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)

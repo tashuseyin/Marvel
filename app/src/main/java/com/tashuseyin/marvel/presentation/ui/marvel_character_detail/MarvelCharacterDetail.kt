@@ -17,7 +17,6 @@ import com.tashuseyin.marvel.presentation.ui.marvel_character_detail.adapter.Com
 import com.tashuseyin.marvel.presentation.ui.marvel_character_detail.state.MarvelDetailState
 import com.tashuseyin.marvel.presentation.ui.marvel_character_detail.viewmodel.MarvelCharacterDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 
@@ -43,7 +42,7 @@ class MarvelCharacterDetail : BindingFragment<FragmentMarvelCharacterDetailBindi
 
     private fun observeModel() {
         lifecycleScope.launch {
-            marvelCharacterDetailViewModel.state.collect { state ->
+            marvelCharacterDetailViewModel.marvelCharacter.observe(viewLifecycleOwner) { state ->
                 if (state.error.isNotBlank()) {
                     binding.errorText.text = state.error
                 }
