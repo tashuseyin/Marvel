@@ -3,6 +3,7 @@ package com.tashuseyin.marvel.data.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.tashuseyin.marvel.data.paging.MarvelCharactersPagingSource
 import com.tashuseyin.marvel.data.remote.network.MarvelCharacterApi
 import com.tashuseyin.marvel.domain.model.MarvelCharacter

@@ -9,4 +9,5 @@
     <string name="marvel_characters">Marvel Characters</string>
     <string name="marvel_comics">Marvel Character Comics</string>
     <string name="error">An unexpected error occurred</string>
+    <string name="comics_text">Comics</string>
 </resources>

@@ -16,70 +16,76 @@
             android:layout_height="match_parent"
             tools:context=".presentation.ui.marvel_character_detail.MarvelCharacterDetail">
 
-            <ImageView
-                android:id="@+id/character_background_image"
-                style="@style/CardDesign"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:scaleType="centerCrop"
-                android:src="@color/lightMediumGray"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/character_image"
-                android:layout_width="150dp"
-                android:layout_height="180dp"
-                android:layout_marginTop="150dp"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="12dp"
                 android:scaleType="fitXY"
-                app:shapeAppearanceOverlay="@style/CardDesign"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/CardDesign" />
 
             <TextView
                 android:id="@+id/character_name"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/courgette"
                 android:textAlignment="center"
+                android:textColor="@color/text_white"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/character_image"
+                app:layout_constraintStart_toStartOf="@+id/character_image"
                 app:layout_constraintTop_toBottomOf="@+id/character_image"
                 tools:text="Spider-Man" />
 
             <TextView
                 android:id="@+id/character_description"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/text_white"
                 android:textSize="14sp"
-                android:visibility="gone"
-                android:padding="10dp"
-                android:textColor="@color/black"
                 android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/character_name"
+                app:layout_constraintStart_toStartOf="@+id/character_name"
+                app:layout_constraintTop_toBottomOf="@+id/character_name" />
+
+            <TextView
+                android:id="@+id/comics_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/courgette"
+                android:paddingStart="12dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/comics_text"
+                android:textColor="@color/text_white"
+                android:textSize="24sp"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/character_name" />
+                app:layout_constraintTop_toBottomOf="@+id/character_description" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/comics_card"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:elevation="5dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/character_description" />
+                app:layout_constraintTop_toBottomOf="@+id/comics_text"
+                tools:listitem="@layout/comics_card" />
 
             <ProgressBar
                 android:id="@+id/progress_bar"
@@ -97,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/text_white"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

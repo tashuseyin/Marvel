@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="250dp"
     android:layout_margin="5dp"
+    android:backgroundTint="@color/dark_gray"
+    app:cardElevation="5dp"
     app:cardCornerRadius="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,11 +14,13 @@
         android:layout_height="match_parent"
         android:layout_margin="5dp">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/comics_image"
             android:layout_width="150dp"
             android:layout_height="match_parent"
             android:src="@color/black"
+            android:layout_margin="4dp"
+            app:shapeAppearanceOverlay="@style/CardDesign"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +33,7 @@
             android:fontFamily="@font/courgette"
             android:padding="4dp"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/text_white"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -40,12 +44,12 @@
         <TextView
             android:id="@+id/comics_description"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginBottom="8dp"
             android:ellipsize="end"
             android:maxLines="9"
             android:padding="4dp"
-            android:textColor="@color/dark_gray"
+            android:textColor="@color/text_white"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/comics_date"
@@ -62,6 +66,8 @@
             android:layout_marginBottom="8dp"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:layout_marginEnd="4dp"
+            android:textColor="@color/text_white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/comics_description"
             app:layout_constraintVertical_bias="1.0"
