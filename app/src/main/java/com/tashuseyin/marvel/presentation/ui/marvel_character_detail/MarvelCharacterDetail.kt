@@ -6,6 +6,7 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.navArgs
 import androidx.viewbinding.ViewBinding
 import coil.load
 import com.tashuseyin.marvel.databinding.FragmentMarvelCharacterDetailBinding
@@ -23,6 +24,7 @@ import kotlinx.coroutines.launch
 class MarvelCharacterDetail : BindingFragment<FragmentMarvelCharacterDetailBinding>() {
     private val marvelCharacterDetailViewModel: MarvelCharacterDetailViewModel by viewModels()
     private val comicList: ArrayList<Comics> = ArrayList()
+    private val args: MarvelCharacterDetailArgs by navArgs()
     override val bindingInflater: (LayoutInflater) -> ViewBinding
         get() = FragmentMarvelCharacterDetailBinding::inflate
 
@@ -35,12 +37,23 @@ class MarvelCharacterDetail : BindingFragment<FragmentMarvelCharacterDetailBindi
     private fun observeModel() {
         lifecycleScope.launch {
             marvelCharacterDetailViewModel.marvelCharacter.observe(viewLifecycleOwner) { state ->
-                if (state.error.isNotBlank()) {
-                    binding.errorText.text = state.error
-                }
+                showError(state)
+                binding.viewError.root.isVisible = state.errorShowing
                 binding.progressBar.isVisible = state.isLoading
                 setCharacterView(state)
                 setCharacterComics(state)
+            }
+        }
+    }
+
+
+    private fun showError(state: MarvelDetailState) {
+        if (state.error.isNotBlank()) {
+            binding.viewError.tvNoConnection.text = state.error
+            binding.viewError.retry.setOnClickListener {
+                lifecycleScope.launch {
+                    marvelCharacterDetailViewModel.retry(args.characterId)
+                }
             }
         }
     }

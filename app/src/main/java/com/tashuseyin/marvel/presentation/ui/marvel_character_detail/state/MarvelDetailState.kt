@@ -7,5 +7,6 @@ data class MarvelDetailState(
     val isLoading: Boolean = false,
     val character: MarvelCharacter? = null,
     val comics: List<Comics> = emptyList(),
+    val errorShowing: Boolean = false,
     val error: String = ""
 )

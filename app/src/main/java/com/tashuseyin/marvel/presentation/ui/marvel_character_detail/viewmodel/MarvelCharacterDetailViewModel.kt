@@ -33,6 +33,11 @@ class MarvelCharacterDetailViewModel @Inject constructor(
         }
     }
 
+    suspend fun retry(characterId: Int){
+        getMarvelCharacterById(characterId)
+        getMarvelCharacterComics(characterId)
+    }
+
     private suspend fun getMarvelCharacterById(characterId: Int) {
         _marvelCharacter.value = MarvelDetailState(isLoading = true)
         try {
@@ -41,10 +46,10 @@ class MarvelCharacterDetailViewModel @Inject constructor(
             _marvelCharacter.value = MarvelDetailState(character = response)
         } catch (e: HttpException) {
             _marvelCharacter.value =
-                MarvelDetailState(error = e.localizedMessage ?: "An unexpected error occurred")
+                MarvelDetailState(error = e.localizedMessage ?: "An unexpected error occurred", errorShowing = true)
         } catch (e: IOException) {
             _marvelCharacter.value =
-                MarvelDetailState(error = "Couldn't reach server. Check your internet connection.")
+                MarvelDetailState(error = "Couldn't reach server. Check your internet connection.", errorShowing = true)
         }
     }
 
@@ -57,10 +62,10 @@ class MarvelCharacterDetailViewModel @Inject constructor(
             _marvelCharacter.value = MarvelDetailState(comics = response)
         } catch (e: HttpException) {
             _marvelCharacter.value =
-                MarvelDetailState(error = e.localizedMessage ?: "An unexpected error occurred")
+                MarvelDetailState(error = e.localizedMessage ?: "An unexpected error occurred", errorShowing = true)
         } catch (e: IOException) {
             _marvelCharacter.value =
-                MarvelDetailState(error = "Couldn't reach server. Check your internet connection.")
+                MarvelDetailState(error = "Couldn't reach server. Check your internet connection.", errorShowing = true)
         }
     }
 }
