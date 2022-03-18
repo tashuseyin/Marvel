@@ -6,7 +6,6 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewbinding.ViewBinding
 import coil.load
 import com.tashuseyin.marvel.databinding.FragmentMarvelCharacterDetailBinding
@@ -30,13 +29,6 @@ class MarvelCharacterDetail : BindingFragment<FragmentMarvelCharacterDetailBindi
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val linearLayoutManager = object : LinearLayoutManager(context) {
-            override fun canScrollVertically(): Boolean {
-                return false
-            }
-        }
-        binding.recyclerview.layoutManager = linearLayoutManager
         observeModel()
     }
 
@@ -91,9 +83,10 @@ class MarvelCharacterDetail : BindingFragment<FragmentMarvelCharacterDetailBindi
                         }
                     }
                 }
-                if(comicList.isNotEmpty()){
+                if (comicList.isNotEmpty()) {
                     comicsText.isVisible = true
                 }
+                print(comicList)
                 adapter.setData(comicList.sortedByDescending {
                     it.date
                 })
