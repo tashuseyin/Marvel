@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/error_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_above="@+id/tv_no_connection"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_no_connection"
+        app:layout_constraintEnd_toEndOf="@+id/tv_no_connection"
+        app:layout_constraintStart_toStartOf="@+id/tv_no_connection"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/no_internet" />
+
+    <TextView
+        android:id="@+id/tv_no_connection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="@string/no_internet_connection"
+        android:textColor="@color/text_white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/retry"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/dark_red"
+        android:text="@string/retry"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/text_white"
+        app:layout_constraintEnd_toEndOf="@+id/tv_no_connection"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="@+id/tv_no_connection"
+        app:layout_constraintTop_toBottomOf="@+id/tv_no_connection" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,12 +9,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.viewbinding.ViewBinding
-import com.tashuseyin.marvel.R
 import com.tashuseyin.marvel.databinding.FragmentMarvelCharacterListBinding
 import com.tashuseyin.marvel.presentation.bindingadapter.BindingFragment
 import com.tashuseyin.marvel.presentation.ui.marvel_character_list.adapter.MarvelCharacterAdapter
 import com.tashuseyin.marvel.presentation.ui.marvel_character_list.viewmodel.MarvelCharacterViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -35,39 +35,26 @@ class MarvelCharacterList : BindingFragment<FragmentMarvelCharacterListBinding>(
     private fun setUpAdapter() {
         adapter = MarvelCharacterAdapter()
         binding.recyclerview.adapter = adapter
-        adapter.onItemClickListener = { characterId ->
-            navigateDetailFragment(characterId)
-        }
-
-        adapter.addLoadStateListener { loadState ->
-
-            if (loadState.refresh is LoadState.Loading) {
-
-                if (adapter.snapshot().isEmpty()) {
-                    binding.progressBar.isVisible = true
-                }
-                binding.errorText.isVisible = false
-
-            } else {
-                binding.progressBar.isVisible = false
-
-                val error = when {
-                    loadState.prepend is LoadState.Error -> loadState.prepend as LoadState.Error
-                    loadState.append is LoadState.Error -> loadState.append as LoadState.Error
-                    loadState.refresh is LoadState.Error -> loadState.refresh as LoadState.Error
-
-                    else -> null
-                }
-                error?.let {
-                    if (adapter.snapshot().isEmpty()) {
-                        binding.errorText.isVisible = true
-                        binding.errorText.text = getString(R.string.error)
-                    }
-                }
-
+        adapter.onItemClickListener =
+            { characterId ->
+                navigateDetailFragment(characterId)
             }
+        viewLifecycleOwner.lifecycleScope.launchWhenCreated {
+            adapter.loadStateFlow.collectLatest { loadStates ->
+                binding.progressBar.isVisible = loadStates.refresh is LoadState.Loading
+                showError(loadStates.refresh is LoadState.Error)
+            }
+
         }
     }
+
+    private fun showError(state: Boolean) {
+        binding.viewError.root.isVisible = state
+        binding.viewError.retry.setOnClickListener {
+            adapter.retry()
+        }
+    }
+
 
     private fun observeViewModel() {
         marvelViewModel.marvelCharacterList.observe(viewLifecycleOwner) {
