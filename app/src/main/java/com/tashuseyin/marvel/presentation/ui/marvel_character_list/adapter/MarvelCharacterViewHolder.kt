@@ -10,7 +10,7 @@ class MarvelCharacterViewHolder(private val binding: CharacterRowLayoutBinding) 
 
     fun bind(marvelCharacter: MarvelCharacter, onItemClickListener: ((Int) -> Unit)?) {
         val imageUrl =
-            marvelCharacter.thumbnail.path + "/portrait_uncanny." + marvelCharacter.thumbnail.extension
+            marvelCharacter.thumbnail.path + "." + marvelCharacter.thumbnail.extension
         binding.characterImage.load(imageUrl) {
             crossfade(300)
         }

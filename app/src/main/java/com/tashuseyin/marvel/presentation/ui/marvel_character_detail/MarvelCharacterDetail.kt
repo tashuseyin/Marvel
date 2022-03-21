@@ -63,7 +63,7 @@ class MarvelCharacterDetail : BindingFragment<FragmentMarvelCharacterDetailBindi
         binding.apply {
             state.character?.let { marvelCharacter ->
                 val imageUrl =
-                    marvelCharacter.thumbnail.path + "/portrait_uncanny." + marvelCharacter.thumbnail.extension
+                    marvelCharacter.thumbnail.path + '.' + marvelCharacter.thumbnail.extension
                 characterImage.load(imageUrl) {
                     crossfade(300)
                 }

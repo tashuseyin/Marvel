@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.viewbinding.ViewBinding
+import com.tashuseyin.marvel.R
 import com.tashuseyin.marvel.databinding.FragmentMarvelCharacterListBinding
 import com.tashuseyin.marvel.presentation.bindingadapter.BindingFragment
 import com.tashuseyin.marvel.presentation.ui.marvel_character_list.adapter.MarvelCharacterAdapter
@@ -50,6 +51,7 @@ class MarvelCharacterList : BindingFragment<FragmentMarvelCharacterListBinding>(
 
     private fun showError(state: Boolean) {
         binding.viewError.root.isVisible = state
+        binding.viewError.tvNoConnection.text = getString(R.string.text_error)
         binding.viewError.retry.setOnClickListener {
             adapter.retry()
         }

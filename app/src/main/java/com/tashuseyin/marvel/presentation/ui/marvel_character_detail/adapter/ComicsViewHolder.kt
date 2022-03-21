@@ -10,7 +10,7 @@ class ComicsViewHolder(private val binding: ComicsCardBinding) :
 
     fun bind(comics: Comics) {
         val imageUrl =
-            comics.thumbnail.path + "/portrait_uncanny." + comics.thumbnail.extension
+            comics.thumbnail.path + "." + comics.thumbnail.extension
         binding.comicsImage.load(imageUrl) {
             crossfade(300)
         }
