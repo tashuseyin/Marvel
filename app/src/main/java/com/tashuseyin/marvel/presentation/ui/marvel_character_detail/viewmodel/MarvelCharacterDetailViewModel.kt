@@ -24,16 +24,16 @@ class MarvelCharacterDetailViewModel @Inject constructor(
     private var _marvelCharacter: MutableLiveData<MarvelDetailState> = MutableLiveData()
     val marvelCharacter get() = _marvelCharacter
 
+    private val characterId = savedStateHandle.get<Int>(Constants.QUERY_CHARACTER_ID)
+
     init {
-        savedStateHandle.get<Int>(Constants.QUERY_CHARACTER_ID)?.let { characterId ->
-            viewModelScope.launch {
-                getMarvelCharacterByIdAndComics(characterId)
-            }
+        viewModelScope.launch {
+            getMarvelCharacterByIdAndComicsData()
         }
     }
 
-    suspend fun retry(characterId: Int) {
-        getMarvelCharacterByIdAndComics(characterId)
+    suspend fun getMarvelCharacterByIdAndComicsData() {
+        characterId?.let { getMarvelCharacterByIdAndComics(it) }
     }
 
     private suspend fun getMarvelCharacterByIdAndComics(characterId: Int) {

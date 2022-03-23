@@ -6,7 +6,6 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.navArgs
 import androidx.viewbinding.ViewBinding
 import coil.load
 import com.tashuseyin.marvel.databinding.FragmentMarvelCharacterDetailBinding
@@ -24,7 +23,6 @@ import kotlinx.coroutines.launch
 class MarvelCharacterDetail : BindingFragment<FragmentMarvelCharacterDetailBinding>() {
     private val marvelCharacterDetailViewModel: MarvelCharacterDetailViewModel by viewModels()
     private val comicList: ArrayList<Comics> = ArrayList()
-    private val args: MarvelCharacterDetailArgs by navArgs()
     override val bindingInflater: (LayoutInflater) -> ViewBinding
         get() = FragmentMarvelCharacterDetailBinding::inflate
 
@@ -52,7 +50,7 @@ class MarvelCharacterDetail : BindingFragment<FragmentMarvelCharacterDetailBindi
             binding.viewError.tvNoConnection.text = state.error
             binding.viewError.retry.setOnClickListener {
                 lifecycleScope.launch {
-                    marvelCharacterDetailViewModel.retry(args.characterId)
+                    marvelCharacterDetailViewModel.getMarvelCharacterByIdAndComicsData()
                 }
             }
         }
